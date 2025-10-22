@@ -1,19 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace lab3
+public static class MathHelper
 {
-    internal class Student
+    
+    public static double CalculateAverage(int[] numbers)
     {
-        public int Id;
-        public class MCAStudent
+        if (numbers == null || numbers.Length == 0)
         {
-            public string Name;
+            Console.WriteLine("Array is empty!");
+            return 0;
         }
-    }
 
-    Student.MCAStudent S = new MCAStudent();
+        int sum = 0;
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
+        return (double)sum / numbers.Length;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        int[] nums = { 10, 20, 30, 40, 50 };
+        double avg = MathHelper.CalculateAverage(nums);
+
+        Console.WriteLine("Average = " + avg);
+    }
 }
